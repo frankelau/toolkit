@@ -1,0 +1,132 @@
+.jd-tool {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+.jd-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.jd-toolbar button {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.jd-toolbar button:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+.jd-toolbar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.jd-primary {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+}
+
+.jd-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+}
+
+.jd-valid {
+  font-size: 12px;
+}
+
+.jd-valid.ok {
+  color: var(--ok-fg);
+}
+
+.jd-valid.err {
+  color: var(--err-fg);
+}
+
+.jd-counts {
+  display: inline-flex;
+  gap: 8px;
+  font-size: 12px;
+  font-family: var(--mono);
+  margin-left: auto;
+}
+
+.jd-counts .c-added {
+  color: var(--ok-fg);
+}
+
+.jd-counts .c-removed {
+  color: var(--err-fg);
+}
+
+.jd-counts .c-changed {
+  color: var(--accent);
+}
+
+.jd-counts .c-equal {
+  color: var(--ok-fg);
+}
+
+.jd-legend {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 4px;
+}
+
+.jd-legend .lg {
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 10px;
+}
+
+.jd-legend .lg.added {
+  background: var(--ok-bg);
+  color: var(--ok-fg);
+}
+
+.jd-legend .lg.diff {
+  background: var(--err-bg);
+  color: var(--err-fg);
+}
+
+/* 编辑+对比合一：左右两个可编辑高亮框 */
+.jd-live {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.jd-opt {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.jd-ignore-keys {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 12px;
+  width: 180px;
+  outline: none;
+}
+.jd-ignore-keys:focus { border-color: var(--accent); }
+.jd-ignore-keys::placeholder { color: var(--text-muted); }

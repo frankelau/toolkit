@@ -1,0 +1,151 @@
+.tt-tool {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.tt-clocks {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--input-bg);
+}
+
+.tt-now {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tt-now-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.tt-now-val {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.tt-now-val small {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.tt-zones {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px;
+}
+
+.tt-zone {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 4px 8px;
+  background: var(--code-bg);
+  border-radius: 5px;
+}
+
+.tt-zone-label {
+  color: var(--text-muted);
+}
+
+.tt-zone-time {
+  font-family: var(--mono);
+  color: var(--text);
+}
+
+.tt-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--input-bg);
+}
+
+.tt-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.tt-unit {
+  display: flex;
+  gap: 4px;
+}
+
+.tt-unit button {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text-muted);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.tt-unit button.on {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.tt-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  outline: none;
+}
+
+.tt-input:focus {
+  border-color: var(--accent);
+}
+
+.tt-out {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tt-out-row {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.tt-out-label {
+  width: 48px;
+  color: var(--text-muted);
+}
+
+.tt-out-val {
+  font-family: var(--mono);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.tt-out-val:hover {
+  color: var(--accent);
+}
+
+.tt-err {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--err-fg);
+}

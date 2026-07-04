@@ -1,0 +1,98 @@
+/* 工具内部多标签容器。占满 .tool-host 给的高度，内部纵向布局：标签条 + 内容区 */
+.mt-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.mt-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 0 8px;
+  overflow-x: auto;
+  flex: 0 0 auto;
+}
+
+.mt-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--tab-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.mt-tab.active {
+  background: var(--accent, #3b9eff);
+  border-color: var(--accent, #3b9eff);
+  color: #fff;
+  font-weight: 500;
+}
+
+.mt-title {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mt-rename {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  width: 90px;
+  outline: none;
+}
+
+.mt-close {
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 2px;
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+.mt-close:hover {
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 1;
+}
+
+.mt-add {
+  border: 1px dashed var(--border);
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 4px 9px;
+  border-radius: 6px;
+  flex: 0 0 auto;
+}
+
+.mt-add:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.mt-body {
+  flex: 1;
+  min-height: 0;
+}
+
+.mt-panel {
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}

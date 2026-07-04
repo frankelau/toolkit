@@ -1,0 +1,163 @@
+.sc-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px;
+  gap: 12px;
+  overflow: auto;
+}
+
+.sc-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.sc-tabs button {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e0e0e0);
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sc-tabs button.active {
+  background: var(--accent, #3b82f6);
+  color: #fff;
+  border-color: transparent;
+}
+
+.sc-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sc-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sc-actions button {
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e0e0e0);
+  background: var(--btn-bg, #f5f5f5);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.sc-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sc-err {
+  color: #e53e3e;
+  font-size: 13px;
+}
+
+.sc-busy {
+  color: var(--text-secondary, #888);
+  font-size: 13px;
+}
+
+.sc-hint {
+  font-size: 12px;
+  color: var(--text-secondary, #888);
+  line-height: 1.5;
+}
+
+.sc-frames {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.sc-hide-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.sc-frames input {
+  width: 56px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e0e0e0);
+  background: var(--input-bg, #fafafa);
+  font-size: 13px;
+}
+
+.sc-img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e0e0e0);
+}
+
+.sc-ocr-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sc-ocr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-secondary, #666);
+}
+
+.sc-ocr-header button {
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border, #e0e0e0);
+  background: var(--btn-bg, #f5f5f5);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.sc-ocr {
+  width: 100%;
+  min-height: 120px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border, #e0e0e0);
+  font-family: inherit;
+  font-size: 13px;
+  resize: vertical;
+  background: var(--input-bg, #fafafa);
+  box-sizing: border-box;
+}
+
+.sc-rec-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.sc-rec-path {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary, #555);
+}
+
+.sc-rec-result button {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border, #e0e0e0);
+  background: var(--btn-bg, #f5f5f5);
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}

@@ -1,0 +1,127 @@
+.enc-tool {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+
+.enc-input {
+  height: 22%;
+  min-height: 80px;
+  resize: none;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  outline: none;
+}
+
+.enc-input:focus {
+  border-color: var(--accent);
+}
+
+.enc-group {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.enc-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  padding-top: 3px;
+  font-weight: 600;
+}
+
+.enc-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.enc-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.enc-hint {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.enc-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.enc-actions button {
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.enc-actions button:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+.enc-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.enc-primary {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+}
+
+.enc-error {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--err-bg);
+  color: var(--err-fg);
+}
+
+.enc-result {
+  flex: 1;
+  min-height: 0;
+  resize: none;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  outline: none;
+}
+
+.enc-hmac-key {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  outline: none;
+}
+
+.enc-hmac-key:focus {
+  border-color: var(--accent);
+}

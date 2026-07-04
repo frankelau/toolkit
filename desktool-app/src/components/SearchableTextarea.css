@@ -1,0 +1,312 @@
+.sta {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 编辑区横向布局：行号栏 + 文本区 */
+.sta-editor {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 行号栏。字号/行高必须与 .sta-input 完全一致，否则行号逐行错位。
+   字号默认 13px，在缩放容器（如 .json-pane-wrap）里被 1em 覆盖以跟随缩放。
+   行号数字字号 = 文本字号（不可缩小，否则行盒高度不等），仅颜色变淡。 */
+.sta-gutter {
+  width: 42px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  padding: 10px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  user-select: none;
+  pointer-events: none;
+}
+.sta-gutter-num {
+  height: 1.5em;
+  line-height: 1.5em;
+  padding-right: 8px;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+/* 文本区容器（backdrop + textarea 叠加） */
+.sta-textwrap {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+/* 状态栏 */
+.sta-statusbar {
+  flex-shrink: 0;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+.sta-status-sel {
+  color: var(--accent);
+}
+.sta-status-spacer {
+  flex: 1;
+}
+
+/* backdrop 与 textarea 必须共享完全一致的文本度量，否则高亮错位 */
+.sta-backdrop,
+.sta-input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  tab-size: 2;
+  box-sizing: border-box;
+}
+
+/* 有行号时：左侧不需要圆角（已由 gutter 接管），右侧保留。
+   并关闭自动换行——否则长行折行成多视觉行，会与行号栏（每逻辑行一个号）错位。 */
+.sta-with-ln .sta-backdrop,
+.sta-with-ln .sta-input {
+  border-radius: 0 8px 8px 0;
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* 无行号时：正常四角 */
+.sta:not(.sta-with-ln) .sta-backdrop,
+.sta:not(.sta-with-ln) .sta-input {
+  border-radius: 8px;
+}
+
+/* 无行号时 sta-textwrap 退化为 full flex */
+.sta:not(.sta-with-ln) .sta-editor {
+  flex: 1;
+  min-height: 0;
+}
+.sta:not(.sta-with-ln) .sta-textwrap {
+  flex: 1;
+  min-height: 0;
+}
+
+.sta-backdrop {
+  overflow: auto;
+  background: var(--input-bg);
+  color: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sta-input {
+  resize: none;
+  background: transparent;
+  color: var(--text);
+  caret-color: var(--text);
+  outline: none;
+  z-index: 1;
+}
+
+.sta-input:focus {
+  border-color: var(--accent);
+}
+
+/* 高亮标记 */
+.sta-backdrop .hl {
+  background: var(--hl-bg);
+  color: transparent;
+  border-radius: 2px;
+}
+
+.sta-backdrop .hl-current {
+  background: var(--hl-current-bg);
+  outline: 1px solid var(--hl-current-outline);
+}
+
+/* 浮动查找替换面板 */
+.sta-panel {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  left: 16px;
+  z-index: 2;
+  background: var(--sidebar-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sta-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.sta-expand {
+  width: 20px;
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+
+.sta-fieldwrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sta-field {
+  width: 200px;
+  padding: 5px 56px 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+
+.sta-field:focus {
+  border-color: var(--accent);
+}
+
+.sta-field:disabled {
+  opacity: 0.5;
+}
+
+.sta-count {
+  position: absolute;
+  right: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.sta-count.err {
+  color: var(--err-fg);
+}
+
+.sta-opt {
+  height: 26px;
+  padding: 0 8px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--text-muted);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.sta-opt:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.sta-opt:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sta-opt.on {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.sta-nav,
+.sta-close {
+  height: 26px;
+  padding: 0 8px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.sta-nav:hover:not(:disabled),
+.sta-close:hover {
+  background: var(--hover);
+}
+
+.sta-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sta-close {
+  border-color: transparent;
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+.sta-textbtn {
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.sta-textbtn:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+.sta-textbtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 停靠模式：查找替换面板占据编辑区上方的正常文档流（不浮动遮挡文本） */
+.sta-panel-docked {
+  position: static;
+  flex-shrink: 0;
+  box-shadow: none;
+  margin-bottom: 6px;
+  left: auto;
+  right: auto;
+  top: auto;
+}

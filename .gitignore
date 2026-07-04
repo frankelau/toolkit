@@ -1,0 +1,7 @@
+.DS_Store
+
+# Playwright MCP debugging artifacts
+.playwright-mcp/
+
+# Superpowers SDD scratch files
+.superpowers/

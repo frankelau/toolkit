@@ -1,0 +1,35 @@
+.split {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+.split-pane {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.split-handle {
+  flex: 0 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+  position: relative;
+}
+
+.split-handle:hover .split-grip,
+.split-handle:active .split-grip {
+  background: var(--accent);
+}
+
+.split-grip {
+  width: 2px;
+  height: 100%;
+  background: var(--border);
+  border-radius: 2px;
+  transition: background 0.1s;
+}

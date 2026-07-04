@@ -1,0 +1,499 @@
+/* HostConfig — 环境管理工具 */
+
+.hconf-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+.hconf-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.hconf-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hconf-active-badge {
+  font-size: 12px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 10px;
+  padding: 2px 10px;
+  flex: 1;
+}
+
+.hconf-add-btn {
+  margin-left: auto;
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.hconf-add-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Grid header ─────────────────────────────────────────────────────────── */
+
+.hconf-grid-header {
+  display: grid;
+  grid-template-columns: 160px 1fr 110px 200px;
+  gap: 0;
+  padding: 6px 16px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* ── List ────────────────────────────────────────────────────────────────── */
+
+.hconf-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ── Env block ───────────────────────────────────────────────────────────── */
+
+.hconf-env-block {
+  border-bottom: 1px solid var(--border);
+}
+
+.hconf-env-block:last-child {
+  border-bottom: none;
+}
+
+.hconf-env-active {
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+
+/* ── Main data row ───────────────────────────────────────────────────────── */
+
+.hconf-env-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 110px 200px;
+  gap: 0;
+  align-items: center;
+  padding: 10px 16px;
+  min-height: 44px;
+}
+
+.hconf-col-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.hconf-col-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  padding-right: 8px;
+}
+
+.hconf-col-vars {
+  display: flex;
+  align-items: center;
+}
+
+.hconf-col-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+/* ── Active dot ──────────────────────────────────────────────────────────── */
+
+.hconf-active-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.hconf-env-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── URL cell ────────────────────────────────────────────────────────────── */
+
+.hconf-url-text {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+
+.hconf-copy-btn {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.hconf-copy-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hconf-expand-btn {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.hconf-expand-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hconf-expand-arrow {
+  font-size: 9px;
+}
+
+.hconf-muted {
+  color: var(--text-muted);
+}
+
+.hconf-activate-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.hconf-activate-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hconf-activate-btn-on {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.hconf-activate-btn-on:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+.hconf-action-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.hconf-action-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hconf-action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hconf-del-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--err-fg);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.hconf-del-btn:hover {
+  border-color: var(--err-fg);
+  background: color-mix(in srgb, var(--err-fg) 8%, transparent);
+}
+
+/* ── Expanded vars panel ─────────────────────────────────────────────────── */
+
+.hconf-vars-panel {
+  padding: 8px 16px 12px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px dashed var(--border);
+  background: color-mix(in srgb, var(--input-bg) 50%, transparent);
+}
+
+.hconf-var-display-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.hconf-var-key-text {
+  color: var(--accent);
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.hconf-var-eq {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.hconf-var-val-text {
+  color: var(--text);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Edit form ───────────────────────────────────────────────────────────── */
+
+.hconf-edit-form {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--input-bg);
+}
+
+.hconf-edit-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hconf-edit-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.hconf-edit-input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+
+.hconf-edit-input:focus {
+  border-color: var(--accent);
+}
+
+.hconf-url-input {
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* ── Vars editor ─────────────────────────────────────────────────────────── */
+
+.hconf-vars-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.hconf-vars-editor-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hconf-vars-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.hconf-var-add-btn {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.hconf-var-add-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hconf-var-list-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hconf-var-row-edit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hconf-var-key-input {
+  width: 140px;
+  flex-shrink: 0;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  outline: none;
+}
+
+.hconf-var-key-input:focus {
+  border-color: var(--accent);
+}
+
+.hconf-var-val-input {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  outline: none;
+}
+
+.hconf-var-val-input:focus {
+  border-color: var(--accent);
+}
+
+.hconf-var-del-btn {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--err-fg);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hconf-var-del-btn:hover {
+  border-color: var(--err-fg);
+  background: color-mix(in srgb, var(--err-fg) 8%, transparent);
+}
+
+/* ── Edit actions ────────────────────────────────────────────────────────── */
+
+.hconf-edit-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.hconf-btn-save {
+  padding: 6px 18px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.hconf-btn-save:hover {
+  opacity: 0.88;
+}
+
+.hconf-btn-cancel {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.hconf-btn-cancel:hover {
+  border-color: var(--text-muted);
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+
+.hconf-empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ── New env block highlight ─────────────────────────────────────────────── */
+
+.hconf-env-new {
+  border: 1px dashed var(--accent);
+  border-radius: 0;
+  margin: 8px 12px;
+  border-radius: 8px;
+}

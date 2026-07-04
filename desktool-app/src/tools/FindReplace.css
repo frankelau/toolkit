@@ -1,0 +1,19 @@
+.fr-tool {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+.fr-tip {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.fr-editor {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+

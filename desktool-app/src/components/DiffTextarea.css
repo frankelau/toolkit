@@ -1,0 +1,67 @@
+.dta {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+}
+
+.dta-backdrop,
+.dta-input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  tab-size: 2;
+}
+
+.dta-backdrop {
+  overflow: auto;
+  background: var(--input-bg);
+  color: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dta-backdrop .dl {
+  border-radius: 2px;
+}
+
+.dta-backdrop .dl.added {
+  background: var(--ok-bg);
+}
+
+.dta-backdrop .dl.diff {
+  background: var(--err-bg);
+}
+
+.dta-backdrop .dl.gap {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 6px,
+    var(--code-bg) 6px,
+    var(--code-bg) 12px
+  );
+}
+
+.dta-input {
+  resize: none;
+  background: transparent;
+  color: var(--text);
+  caret-color: var(--text);
+  outline: none;
+  z-index: 1;
+}
+
+.dta-input:focus {
+  border-color: var(--accent);
+}

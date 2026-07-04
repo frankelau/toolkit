@@ -1,0 +1,223 @@
+.ct-tool {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 16px;
+}
+
+.ct-main {
+  display: flex;
+  gap: 16px;
+}
+
+.ct-preview {
+  width: 160px;
+  height: 160px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ct-picker {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.ct-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ct-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ct-field label {
+  width: 44px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+.ct-field input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  outline: none;
+}
+
+.ct-field input:focus {
+  border-color: var(--accent);
+}
+
+.ct-field input.err {
+  border-color: var(--err-fg);
+}
+
+.ct-field button {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.ct-field button:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+.ct-field button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ct-sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--input-bg);
+}
+
+.ct-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ct-slider-label {
+  width: 20px;
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.ct-slider input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.ct-slider-val {
+  width: 36px;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* WCAG contrast */
+.ct-wcag {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: var(--input-bg);
+}
+
+.ct-wcag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ct-wcag-label {
+  width: 52px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+}
+
+.ct-wcag-ratio {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--text);
+  min-width: 64px;
+}
+
+.ct-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--mono);
+}
+
+.ct-badge-aaa {
+  background: var(--ok-bg);
+  color: var(--ok-fg);
+}
+
+.ct-badge-aa {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.ct-badge-fail {
+  background: var(--err-bg);
+  color: var(--err-fg);
+}
+
+/* Color history */
+.ct-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+}
+
+.ct-history-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s;
+}
+
+.ct-history-dot:hover {
+  transform: scale(1.2);
+  border-color: var(--accent);
+}
+
+/* Palette */
+.ct-palette { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--input-bg); }
+.ct-palette-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.ct-palette-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.ct-palette-group { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.ct-palette-label { font-size: 11px; color: var(--text-muted); }
+.ct-palette-swatch { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--border); cursor: pointer; padding: 0; }
+.ct-palette-swatch:hover { transform: scale(1.15); border-color: var(--accent); }
+
+/* Contrast preview */
+.ct-contrast-preview { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--input-bg); }
+.ct-contrast-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+.ct-contrast-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.ct-contrast-box { flex: 1; padding: 10px 14px; border-radius: 6px; font-size: 13px; text-align: center; }

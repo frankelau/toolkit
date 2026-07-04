@@ -1,0 +1,10 @@
+.stb-bar{display:flex;align-items:center;gap:2px;padding:6px 10px 0;border-bottom:1px solid var(--border);background:var(--code-bg);overflow-x:auto;flex-shrink:0;}
+.stb-tab{display:flex;align-items:center;gap:4px;padding:5px 10px;border:1px solid var(--border);border-bottom:none;border-radius:6px 6px 0 0;background:var(--input-bg);cursor:pointer;font-size:12px;white-space:nowrap;color:var(--text-muted);}
+.stb-tab.on{background:var(--bg);color:var(--text);border-color:var(--border);border-bottom-color:var(--bg);margin-bottom:-1px;z-index:1;position:relative;}
+.stb-tab:hover:not(.on){background:var(--hover,color-mix(in srgb,var(--accent) 6%,transparent));}
+.stb-name{max-width:100px;overflow:hidden;text-overflow:ellipsis;}
+.stb-edit{width:80px;padding:0 4px;border:1px solid var(--accent);border-radius:3px;background:var(--bg);color:var(--text);font-size:12px;outline:none;}
+.stb-del{padding:0 3px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;font-size:14px;line-height:1;}
+.stb-del:hover{color:var(--err-fg,#e55);}
+.stb-add{padding:5px 10px;border:1px dashed var(--border);border-bottom:none;border-radius:6px 6px 0 0;background:transparent;color:var(--text-muted);cursor:pointer;font-size:14px;}
+.stb-add:hover{color:var(--accent);border-color:var(--accent);}

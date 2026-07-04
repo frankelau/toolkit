@@ -1,0 +1,312 @@
+.json-tool {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+.json-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.json-toolbar .sep {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+.json-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.json-toolbar label.check {
+  cursor: pointer;
+}
+
+.json-status {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.json-status.ok {
+  background: var(--ok-bg);
+  color: var(--ok-fg);
+}
+
+.json-status.error {
+  background: var(--err-bg);
+  color: var(--err-fg);
+}
+
+.json-panes {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.json-pane-wrap {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+}
+
+/* SearchableTextarea 内部根据外层 font-size 缩放（行号栏一并跟随，保持对齐） */
+.json-pane-wrap .sta-input,
+.json-pane-wrap .sta-backdrop,
+.json-pane-wrap .sta-gutter {
+  font-size: 1em;
+}
+
+.json-tree-wrap {
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  overflow: hidden;
+}
+
+.json-tree-empty {
+  padding: 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.json-view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.json-view-toggle button {
+  padding: 5px 12px;
+  border: none;
+  background: var(--input-bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.json-view-toggle button.on {
+  background: var(--accent);
+  color: #fff;
+}
+
+.json-zoom {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.json-zoom button {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.json-zoom button:hover {
+  background: var(--hover);
+}
+
+.json-zoom-val {
+  font-size: 12px;
+  color: var(--text-muted);
+  min-width: 38px;
+  text-align: center;
+}
+
+.json-pane {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text);
+  outline: none;
+}
+
+.json-pane:focus {
+  border-color: var(--accent);
+}
+
+.json-jpath {
+  flex: 1;
+  min-width: 160px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* 格式化失败时的右侧视图：显示原文 + 行号，错误行红色高亮 */
+.json-error-view {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: auto;
+  font-family: var(--mono);
+  line-height: 1.5;
+  padding: 4px 0;
+  background: var(--input-bg);
+}
+.json-err-line {
+  display: flex;
+  align-items: flex-start;
+}
+.json-err-gutter {
+  flex-shrink: 0;
+  width: 3em;
+  padding-right: 10px;
+  text-align: right;
+  color: var(--text-muted);
+  user-select: none;
+}
+.json-err-code {
+  flex: 1;
+  padding-left: 8px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.json-err-line.err {
+  background: var(--err-bg);
+}
+.json-err-line.err .json-err-code {
+  color: var(--err-fg);
+  font-weight: 600;
+  border-left: 3px solid var(--err-fg);
+  padding-left: 5px;
+}
+.json-err-line.err .json-err-gutter {
+  color: var(--err-fg);
+  font-weight: 700;
+}
+
+/* ── Mini Postman 请求面板 ── */
+.req-active {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+
+.json-req-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+}
+
+.json-req-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.json-req-method {
+  padding: 5px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.json-req-url {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface, var(--input-bg));
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  outline: none;
+}
+
+.json-req-url:focus {
+  border-color: var(--accent);
+}
+
+.json-req-send {
+  padding: 5px 14px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.json-req-send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.json-req-extras {
+  display: flex;
+  gap: 6px;
+}
+
+.json-req-textarea {
+  flex: 1;
+  resize: vertical;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface, var(--input-bg));
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  outline: none;
+}
+
+.json-req-textarea:focus {
+  border-color: var(--accent);
+}
+
+.json-typelang {
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.jt-copy-path {
+  margin-left: 2px;
+  opacity: 0.4;
+}
+.jt-copy-path:hover {
+  opacity: 1;
+  color: var(--accent);
+}

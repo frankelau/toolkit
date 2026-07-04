@@ -1,0 +1,174 @@
+.cb-tool {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+
+.cb-input {
+  height: 30%;
+  min-height: 100px;
+  resize: none;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  outline: none;
+}
+
+.cb-input:focus {
+  border-color: var(--accent);
+}
+
+.cb-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cb-langs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cb-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.cb-link {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--accent);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.cb-indent {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.cb-indent select {
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+}
+
+.cb-spacer {
+  flex: 1;
+}
+
+.cb-toolbar button {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.cb-toolbar button:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+.cb-toolbar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cb-primary {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: var(--accent) !important;
+}
+
+.cb-error {
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--err-bg);
+  color: var(--err-fg);
+}
+
+.cb-output {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  overflow: auto;
+}
+
+.cb-output-empty {
+  padding: 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.cb-code {
+  display: flex;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.cb-gutter {
+  flex-shrink: 0;
+  padding: 8px 0;
+  text-align: right;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  user-select: none;
+  border-right: 1px solid var(--border);
+}
+
+.cb-lineno {
+  padding: 0 10px;
+}
+
+.cb-codetext {
+  margin: 0;
+  padding: 8px 12px;
+  white-space: pre;
+  color: var(--text);
+  overflow-x: auto;
+  flex: 1;
+}
+
+.cb-hl {
+  display: block;
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.cb-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
